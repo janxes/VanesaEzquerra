@@ -949,7 +949,7 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Architect"],
+  "@type": ["LocalBusiness", "ProfessionalService"],
   "name": "Vanesa Ezquerra",
   "alternateName": "Vanesa Ezquerra Arquitectura",
   "url": "https://vanesaezquerra.com",
@@ -1023,7 +1023,7 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
 export const SCHEMA_JSON_LD = `<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Architect"],
+  "@type": ["LocalBusiness", "ProfessionalService"],
   "name": "Vanesa Ezquerra",
   "alternateName": "Vanesa Ezquerra Arquitectura",
   "url": "https://vanesaezquerra.com",

@@ -1213,7 +1213,7 @@ export default function App() {
                   <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40 flex flex-wrap items-center justify-between gap-4">
                     <div className="space-y-1">
                       <h4 className="font-headline-sm text-sm font-bold text-moss-deep">
-                        3. Datos Estructurados Schema.org (Architect JSON-LD)
+                        3. Datos Estructurados Schema.org (LocalBusiness &amp; ProfessionalService JSON-LD)
                       </h4>
                       <p className="text-xs text-on-surface-variant">
                         Incorporado en el <code>&lt;head&gt;</code> de la web y en el bloque <code>wp:html</code> del Footer para WordPress Twenty Twenty-Five.
