@@ -3,6 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var currentFetch = window.fetch ? window.fetch.bind(window) : undefined;
+          if (currentFetch) {
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function () {
+                return currentFetch;
+              },
+              set: function (fn) {
+                if (typeof fn === 'function') {
+                  currentFetch = fn;
+                }
+              },
+            });
+          }
+        } catch (_) {}
+        window.addEventListener(
+          'error',
+          function (e) {
+            if (
+              (e.filename && e.filename.indexOf('chrome-extension://') === 0) ||
+              (e.message && e.message.indexOf('Cannot set property fetch') !== -1)
+            ) {
+              e.stopImmediatePropagation();
+              e.preventDefault();
+            }
+          },
+          true
+        );
+      })();
+    </script>
     <title>Vanesa Ezquerra — Arquitectura Passivhaus</title>
     <meta name="description" content="Web de arquitectura Passivhaus de autor para Vanesa Ezquerra y conversor exacto a bloques Gutenberg para WordPress Twenty Twenty-Five (TT5)." />
     <meta property="og:title" content="Vanesa Ezquerra — Arquitectura Passivhaus &amp; Bloques Gutenberg TT5" />
@@ -15,7 +49,7 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Architect",
+  "@type": ["LocalBusiness", "Architect"],
   "name": "Vanesa Ezquerra",
   "alternateName": "Vanesa Ezquerra Arquitectura",
   "url": "https://vanesaezquerra.com",
