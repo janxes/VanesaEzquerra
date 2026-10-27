@@ -4,6 +4,7 @@ import {
   FULL_GUTENBERG_PAGE_CODE,
   TT5_CUSTOM_CSS,
   TT5_THEME_JSON_SNIPPET,
+  SCHEMA_JSON_LD,
   LLMS_TXT_CONTENT,
   LLMS_FULL_TXT_CONTENT,
   GutenbergSection,
@@ -1207,6 +1208,27 @@ export default function App() {
                   </div>
                   <pre className="p-5 rounded-2xl bg-[#11200D] text-[#D7E6CF] text-xs font-mono overflow-x-auto leading-relaxed max-h-[34vh]">
                     <code>{LLMS_FULL_TXT_CONTENT}</code>
+                  </pre>
+
+                  <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40 flex flex-wrap items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h4 className="font-headline-sm text-sm font-bold text-moss-deep">
+                        3. Datos Estructurados Schema.org (Architect JSON-LD)
+                      </h4>
+                      <p className="text-xs text-on-surface-variant">
+                        Incorporado en el <code>&lt;head&gt;</code> de la web y en el bloque <code>wp:html</code> del Footer para WordPress Twenty Twenty-Five.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(SCHEMA_JSON_LD, 'schema-copy')}
+                      className="px-4 py-2 rounded-xl bg-primary text-white text-xs font-semibold hover:bg-moss-deep transition-colors cursor-pointer"
+                    >
+                      {copiedId === 'schema-copy' ? '¡Schema JSON-LD Copiado!' : 'Copiar Schema JSON-LD'}
+                    </button>
+                  </div>
+                  <pre className="p-5 rounded-2xl bg-[#11200D] text-[#D7E6CF] text-xs font-mono overflow-x-auto leading-relaxed max-h-[34vh]">
+                    <code>{SCHEMA_JSON_LD}</code>
                   </pre>
                 </div>
               )}

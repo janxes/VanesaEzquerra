@@ -945,10 +945,149 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
     <!-- /wp:column -->
   </div>
   <!-- /wp:columns -->
+  <!-- wp:html -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Architect",
+  "name": "Vanesa Ezquerra",
+  "alternateName": "Vanesa Ezquerra Arquitectura",
+  "url": "https://vanesaezquerra.com",
+  "logo": "https://www.vanesaezquerra.com/wp-content/uploads/2017/01/cropped-vanesa-Logo-1-linea.png",
+  "image": "https://www.vanesaezquerra.com/wp-content/uploads/2017/01/vanesa-ezquerra-foto.jpg",
+  "description": "Estudio de arquitectura de autor especializado en el diseño y certificación de Casas Pasivas (Passivhaus) y alta eficiencia energética.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Palencia",
+    "addressRegion": "Castilla y León",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "41.652251",
+    "longitude": "-4.724532"
+  },
+  "telephone": "+34000000000",
+  "email": "contacto@vanesaezquerra.com",
+  "priceRange": "$$$",
+  "knowsAbout": [
+    "Passivhaus",
+    "Casas Pasivas",
+    "Arquitectura Sostenible",
+    "Eficiencia Energética",
+    "EnerPHit",
+    "Construcción Bioclimática"
+  ],
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Madrid"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Valladolid"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Burgos"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "León"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Salamanca"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "País Vasco"
+    }
+  ],
+  "sameAs": [
+    "https://linkedin.com",
+    "https://instagram.com",
+    "https://facebook.com",
+    "URL_ENTREVISTA_CADENA_SER_O_NOTICIA",
+    "URL_ENTREVISTA_ONDA_CERO_O_NOTICIA",
+    "URL_NOTICIA_EL_NORTE_DE_CASTILLA"
+  ]
+}
+  </script>
+  <!-- /wp:html -->
 </footer>
 <!-- /wp:group -->`
   }
 ];
+
+export const SCHEMA_JSON_LD = `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Architect",
+  "name": "Vanesa Ezquerra",
+  "alternateName": "Vanesa Ezquerra Arquitectura",
+  "url": "https://vanesaezquerra.com",
+  "logo": "https://www.vanesaezquerra.com/wp-content/uploads/2017/01/cropped-vanesa-Logo-1-linea.png",
+  "image": "https://www.vanesaezquerra.com/wp-content/uploads/2017/01/vanesa-ezquerra-foto.jpg",
+  "description": "Estudio de arquitectura de autor especializado en el diseño y certificación de Casas Pasivas (Passivhaus) y alta eficiencia energética.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Palencia",
+    "addressRegion": "Castilla y León",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "41.652251",
+    "longitude": "-4.724532"
+  },
+  "telephone": "+34000000000",
+  "email": "contacto@vanesaezquerra.com",
+  "priceRange": "$$$",
+  "knowsAbout": [
+    "Passivhaus",
+    "Casas Pasivas",
+    "Arquitectura Sostenible",
+    "Eficiencia Energética",
+    "EnerPHit",
+    "Construcción Bioclimática"
+  ],
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Madrid"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Valladolid"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Burgos"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "León"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Salamanca"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "País Vasco"
+    }
+  ],
+  "sameAs": [
+    "https://linkedin.com",
+    "https://instagram.com",
+    "https://facebook.com",
+    "URL_ENTREVISTA_CADENA_SER_O_NOTICIA",
+    "URL_ENTREVISTA_ONDA_CERO_O_NOTICIA",
+    "URL_NOTICIA_EL_NORTE_DE_CASTILLA"
+  ]
+}
+</script>`;
 
 export const FULL_GUTENBERG_PAGE_CODE = GUTENBERG_SECTIONS.map(
   (s) => `<!-- =====================================================================\n     SECCIÓN: ${s.title}\n     ===================================================================== -->\n${s.gutenbergCode}`
