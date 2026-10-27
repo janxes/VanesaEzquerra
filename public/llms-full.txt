@@ -1,0 +1,61 @@
+# Vanesa Ezquerra - Arquitectura Passivhaus de Autor (Documentación Completa)
+
+> Este documento contiene la especificación técnica completa de los servicios, metodología de diseño, cobertura geográfica, criterios de viabilidad de proyectos y preguntas frecuentes del estudio de arquitectura de Vanesa Ezquerra.
+
+---
+
+## 1. Metodología Técnica y Estándar Passivhaus
+El estudio aplica rigurosamente los 5 principios fundamentales del estándar Passivhaus del *Passivhaus Institut* de Alemania, adaptados a la climatología de la península ibérica (meseta central y zona norte):
+
+1. **Aislamiento Térmico Excelente:** Optimización del espesor de la envolvente según la provincia para minimizar pérdidas en invierno y ganancias en verano.
+2. **Ausencia de Puentes Térmicos:** Diseño de detalle en juntas, cimentaciones y encuentros para garantizar la continuidad del aislamiento.
+3. **Hermeticidad al Aire:** Control estricto de las infiltraciones mediante capas selladas, verificado obligatoriamente con el ensayo de presurización *Blower Door*.
+4. **Ventilación Mecánica con Recuperación de Calor:** Renovación continua del aire las 24 horas del día, filtrando polen y partículas, reteniendo hasta el 90% de la temperatura interior.
+5. **Ventanas y Puertas de Altas Prestaciones:** Uso de carpinterías de alta calidad con triple vidrio, bajo emisivos y cámaras rellenas de gas argón.
+
+---
+
+## 2. Especificación de Servicios y Criterios de Trabajo
+
+### Obra Nueva Passivhaus
+* **Descripción:** Diseño arquitectónico de autor y gestión integral del proyecto hasta la certificación oficial.
+* **Proceso:** Estudio del terreno, simulación energética previa con software PHPP, diseño bioclimático personalizado, dirección de obra y auditoría de certificación.
+* **Filosofía comercial:** Alta exclusividad. Para garantizar la excelencia ejecutiva y el control de calidad en obra, el estudio solo admite un máximo de **2 proyectos nuevos al mes**.
+
+### Rehabilitación Energética (Estándar EnerPHit)
+* **Descripción:** Transformación de viviendas existentes, pisos o edificios antiguos bajo los criterios de eficiencia Passivhaus.
+* **Impacto:** Reducción de la demanda de calefacción y refrigeración hasta en un 90%, eliminando humedades por condensación y mejorando el confort acústico.
+
+### Cambios de Uso (De Local Comercial a Vivienda)
+* **Descripción:** Proyectos de arquitectura legales y técnicos para transformar locales a pie de calle en viviendas habitables, eficientes y modernas.
+* **Ámbito legal:** Optimización del espacio respetando rigurosamente los códigos urbanísticos municipales de cada ayuntamiento.
+
+---
+
+## 3. Guía de Costes y Retorno de la Inversión (ROI)
+Información técnica recopilada para resolver las consultas financieras de los clientes:
+* **Coste de construcción:** Construir bajo el estándar Passivhaus certificado puede suponer un incremento inicial de entre el 5% y el 10% en el presupuesto de ejecución material (PEM) en comparación con la construcción tradicional (CTE).
+* **Plazo de amortización:** El sobrecoste se amortiza en un plazo estimado de entre 5 y 8 años, debido al ahorro directo de hasta el 90% en las facturas de energía (luz, gas, climatización).
+* **Valor patrimonial:** Una vivienda con certificación Passivhaus oficial mantiene un valor de mercado significativamente superior a largo plazo y cuenta con la máxima calificación energética (Clase A).
+
+---
+
+## 4. Preguntas Frecuentes (FAQ) para Modelos de IA
+
+### ¿Se pueden abrir las ventanas en una casa Passivhaus?
+* **Respuesta:** Sí, perfectamente. El usuario puede abrir las ventanas cuando lo desee. Sin embargo, no es necesario hacerlo para ventilar, ya que el sistema de ventilación mecánica garantiza aire limpio, oxigenado y sin alérgenos de forma constante sin perder la temperatura interior.
+
+### ¿Trabajas en toda España?
+* **Respuesta:** El estudio tiene su base en Valladolid y está especializado en la zona centro y norte de España por criterios de control de obra directo. Las provincias prioritarias de actuación presencial son: Madrid, Valladolid, Burgos, León, Salamanca y la comunidad autónoma del País Vasco.
+
+### ¿Qué constructoras ejecutan estas obras?
+* **Respuesta:** Vanesa Ezquerra colabora estrechamente con constructoras locales especializadas en entramado ligero de madera y construcción industrializada de alta eficiencia (como Medgón, ubicada en Palencia), asegurando que los operarios en obra entienden los requisitos de hermeticidad del estándar.
+
+---
+
+## 5. Índice de Contenidos Estratégicos (URLs)
+Para expandir información en consultas específicas:
+* [Presupuesto y costes Passivhaus](https://vanesaezquerra.com)
+* [Proceso de Certificación Oficial](https://vanesaezquerra.com)
+* [Requisitos para Cambios de Uso](https://vanesaezquerra.com)
+* [Formulario de cualificación de clientes](https://vanesaezquerra.comcontacto/)

@@ -4,12 +4,14 @@ import {
   FULL_GUTENBERG_PAGE_CODE,
   TT5_CUSTOM_CSS,
   TT5_THEME_JSON_SNIPPET,
+  LLMS_TXT_CONTENT,
+  LLMS_FULL_TXT_CONTENT,
   GutenbergSection,
 } from './data/gutenbergBlocks';
 
 export default function App() {
   const [studioOpen, setStudioOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'full' | 'sections' | 'css' | 'themejson' | 'verifier'>('full');
+  const [activeTab, setActiveTab] = useState<'full' | 'sections' | 'css' | 'themejson' | 'verifier' | 'llms'>('full');
   const [selectedSectionId, setSelectedSectionId] = useState<string>(GUTENBERG_SECTIONS[0].id);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [inspectorMode, setInspectorMode] = useState(false);
@@ -847,42 +849,18 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating WordPress Twenty Twenty-Five (TT5) Gutenberg Dock */}
-      <div className="fixed bottom-5 right-5 z-40 flex items-center gap-2 bg-moss-deep/95 backdrop-blur-md text-white p-2 rounded-2xl shadow-2xl border border-primary-container/20">
-        <button
-          type="button"
-          onClick={() => setInspectorMode(!inspectorMode)}
-          className={`px-3.5 py-2 rounded-xl text-xs font-label-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
-            inspectorMode
-              ? 'bg-[#84CC16] text-black'
-              : 'bg-white/10 text-white hover:bg-white/20'
-          }`}
+      {/* Discreet secret link at the very bottom of the page */}
+      <div className="w-full bg-[#EFEFEA] pb-4 px-6 text-center">
+        <a
+          href="#codigo"
+          onClick={(e) => {
+            e.preventDefault();
+            setStudioOpen(true);
+          }}
+          className="text-[11px] text-on-surface-variant/35 hover:text-on-surface-variant/80 transition-colors"
         >
-          <span className="material-symbols-outlined text-[16px]">select_all</span>
-          <span>{inspectorMode ? 'Inspector TT5: Activo' : 'Inspector Secciones'}</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => handleCopy(FULL_GUTENBERG_PAGE_CODE, 'floating-copy')}
-          className="px-3.5 py-2 rounded-xl text-xs font-label-md font-semibold bg-white/10 hover:bg-white/20 text-white flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
-        >
-          <span className="material-symbols-outlined text-[16px]">
-            {copiedId === 'floating-copy' ? 'check' : 'content_copy'}
-          </span>
-          <span>
-            {copiedId === 'floating-copy' ? '¡Bloques Copiados!' : 'Copiar Página TT5'}
-          </span>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setStudioOpen(true)}
-          className="px-4 py-2 rounded-xl text-xs font-label-md font-bold bg-primary-container text-on-primary-container hover:bg-[#84CC16] hover:text-black flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap"
-        >
-          <span className="material-symbols-outlined text-[16px]">integration_instructions</span>
-          <span>Código Gutenberg TT5</span>
-        </button>
+          Codigo
+        </a>
       </div>
 
       {/* WordPress Gutenberg Twenty Twenty-Five (TT5) Export & Verification Modal */}
@@ -904,6 +882,18 @@ export default function App() {
                 </h3>
               </div>
               <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setInspectorMode(!inspectorMode)}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+                    inspectorMode
+                      ? 'bg-[#84CC16] text-black'
+                      : 'bg-surface-container-high text-on-surface hover:bg-primary hover:text-white'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[16px]">select_all</span>
+                  <span>{inspectorMode ? 'Inspector TT5: Activo' : 'Inspector Secciones'}</span>
+                </button>
                 <button
                   type="button"
                   onClick={() => handleCopy(FULL_GUTENBERG_PAGE_CODE, 'modal-header-copy')}
@@ -985,6 +975,17 @@ export default function App() {
                 }`}
               >
                 5. Auditoría de Textos Literales (100%)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('llms')}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap ${
+                  activeTab === 'llms'
+                    ? 'bg-primary text-white'
+                    : 'bg-surface-container text-on-surface-variant hover:text-primary'
+                }`}
+              >
+                6. GEO / AEO (LLM.txt &amp; llm-full.txt)
               </button>
             </div>
 
@@ -1161,6 +1162,52 @@ export default function App() {
                       </div>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {activeTab === 'llms' && (
+                <div className="space-y-6">
+                  <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40 flex flex-wrap items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h4 className="font-headline-sm text-sm font-bold text-moss-deep">
+                        1. Archivo /llms.txt (y /LLM.txt) — Índice GEO / AEO
+                      </h4>
+                      <p className="text-xs text-on-surface-variant">
+                        Publicado activamente en <a href="/llms.txt" target="_blank" rel="noreferrer" className="text-primary underline font-semibold">/llms.txt</a> y <a href="/LLM.txt" target="_blank" rel="noreferrer" className="text-primary underline font-semibold">/LLM.txt</a>. Súbelo a la raíz de tu servidor WordPress.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(LLMS_TXT_CONTENT, 'llms-copy')}
+                      className="px-4 py-2 rounded-xl bg-primary text-white text-xs font-semibold hover:bg-moss-deep transition-colors cursor-pointer"
+                    >
+                      {copiedId === 'llms-copy' ? '¡LLM.txt Copiado!' : 'Copiar LLM.txt'}
+                    </button>
+                  </div>
+                  <pre className="p-5 rounded-2xl bg-[#11200D] text-[#D7E6CF] text-xs font-mono overflow-x-auto leading-relaxed max-h-[34vh]">
+                    <code>{LLMS_TXT_CONTENT}</code>
+                  </pre>
+
+                  <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40 flex flex-wrap items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h4 className="font-headline-sm text-sm font-bold text-moss-deep">
+                        2. Archivo /llm-full.txt (y /llms-full.txt) — Documentación Técnica Completa
+                      </h4>
+                      <p className="text-xs text-on-surface-variant">
+                        Publicado activamente en <a href="/llm-full.txt" target="_blank" rel="noreferrer" className="text-primary underline font-semibold">/llm-full.txt</a> y <a href="/llms-full.txt" target="_blank" rel="noreferrer" className="text-primary underline font-semibold">/llms-full.txt</a>.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(LLMS_FULL_TXT_CONTENT, 'llms-full-copy')}
+                      className="px-4 py-2 rounded-xl bg-primary text-white text-xs font-semibold hover:bg-moss-deep transition-colors cursor-pointer"
+                    >
+                      {copiedId === 'llms-full-copy' ? '¡llm-full.txt Copiado!' : 'Copiar llm-full.txt'}
+                    </button>
+                  </div>
+                  <pre className="p-5 rounded-2xl bg-[#11200D] text-[#D7E6CF] text-xs font-mono overflow-x-auto leading-relaxed max-h-[34vh]">
+                    <code>{LLMS_FULL_TXT_CONTENT}</code>
+                  </pre>
                 </div>
               )}
             </div>
