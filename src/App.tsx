@@ -14,6 +14,9 @@ export default function App() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [inspectorMode, setInspectorMode] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [ebookModalOpen, setEbookModalOpen] = useState(false);
+  const [ebookSubmitted, setEbookSubmitted] = useState(false);
+  const [ebookForm, setEbookForm] = useState({ nombre: '', email: '' });
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [bookingForm, setBookingForm] = useState({
@@ -66,6 +69,18 @@ export default function App() {
     setBookingSubmitted(true);
   };
 
+  const openEbookModal = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    e.preventDefault();
+    setEbookSubmitted(false);
+    setEbookModalOpen(true);
+  };
+
+  const handleEbookSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!ebookForm.nombre.trim() || !ebookForm.email.trim()) return;
+    setEbookSubmitted(true);
+  };
+
   const currentSection: GutenbergSection =
     GUTENBERG_SECTIONS.find((s) => s.id === selectedSectionId) || GUTENBERG_SECTIONS[0];
 
@@ -96,6 +111,8 @@ export default function App() {
             <img
               src="/assets/aistudio/image_e1c48185.png"
               alt="Vanesa Ezquerra"
+              width={300}
+              height={39}
               className="h-6 sm:h-8 lg:h-9 w-auto object-contain mix-blend-multiply"
             />
           </a>
@@ -187,7 +204,7 @@ export default function App() {
               style={{
                 backgroundColor: '#1B2218',
                 backgroundImage:
-                  'url("https://www.vanesaezquerra.com/wp-content/uploads/2016/11/vanesa_ezquerra_home_prueba8.jpg")',
+                  'url("/assets/aistudio/vanesa_ezquerra_arquitectura_3efeb153.webp")',
                 backgroundPosition: 'right center',
               }}
             />
@@ -674,6 +691,64 @@ export default function App() {
             </div>
           </section>
 
+          {/* Ebook Passivhaus Section */}
+          <section
+            id="sec-ebook"
+            className={`py-24 px-6 lg:px-12 bg-surface-container-low relative border-t border-outline-variant/30 ${
+              inspectorMode ? 'ring-2 ring-inset ring-primary/60' : ''
+            }`}
+          >
+            {inspectorMode && (
+              <button
+                onClick={() => openSectionInStudio('ebook')}
+                className="absolute top-4 right-4 z-30 bg-moss-deep text-white text-xs font-label-md px-3 py-1.5 rounded-full shadow-md hover:bg-primary transition-colors flex items-center gap-1.5 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[14px]">code_blocks</span>
+                <span>Copiar Bloque Gutenberg: Ebook Passivhaus</span>
+              </button>
+            )}
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative group">
+                  <div className="absolute -inset-4 bg-primary-container/50 rounded-[2.5rem] blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
+                  <img
+                    src="/assets/aistudio/image_9ba97cfd.png"
+                    alt="Ebook: 5 cosas que debes saber sobre el Passivhaus y que nadie te cuenta — Vanesa Ezquerra"
+                    width={1410}
+                    height={2250}
+                    loading="lazy"
+                    decoding="async"
+                    className="relative z-10 w-full max-w-[280px] sm:max-w-[330px] h-auto rounded-2xl shadow-2xl border border-outline-variant/40 object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 space-y-6">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container text-primary font-label-md font-semibold text-sm">
+                  <span className="material-symbols-outlined text-[18px]">menu_book</span>
+                  <span>Guía Descargable Gratuita · Edición 2026</span>
+                </span>
+                <h2 className="font-headline-lg text-3xl sm:text-4xl lg:text-5xl text-moss-deep font-bold leading-tight">
+                  ¿Quieres saber más sobre los proyectos passivhaus?
+                </h2>
+                <p className="font-body-lg text-on-surface-variant text-lg leading-relaxed">
+                  Sabía que, una vez hayas leído un poco sobre el Passivhaus, querías leer más sobre Passivhaus por eso he escrito este ebook con todo mi cariño para ti, como arquitecto Passivhaus. Para que sepas de verdad, lo que entraña el Passivhaus bien hecho, y no te pierdas la oportunidad de tener información seria de la mano de un arquitecto passivhaus certificado, como yo.
+                </p>
+                <div className="pt-2">
+                  <a
+                    href="#descargar-ebook"
+                    onClick={openEbookModal}
+                    className="inline-flex items-center gap-3 font-label-md px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:opacity-95 transition-all text-base font-bold shadow-xl shadow-primary/15 cursor-pointer"
+                    style={{ backgroundColor: 'rgb(132, 204, 22)', color: 'rgb(0, 0, 0)' }}
+                  >
+                    <span>SI, Quiero mi ebook.</span>
+                    <span className="material-symbols-outlined text-[20px]">download</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Footer CTA Final de Alta Conversión */}
           <section
             id="sec-cta-final"
@@ -746,13 +821,21 @@ export default function App() {
           </div>
           <div className="space-y-3">
             <h5 className="font-headline-sm text-moss-deep font-bold text-[16px]">Contacto</h5>
-            <p className="text-body-sm text-on-surface-variant">studio@vanesaezquerra.com</p>
-            <p className="text-body-sm text-on-surface-variant">+34 900 000 000</p>
+            <p className="text-body-sm text-on-surface-variant">
+              <a href="mailto:hola@vanesaezquerra.com" className="hover:text-primary transition-colors">
+                hola@vanesaezquerra.com
+              </a>
+            </p>
+            <p className="text-body-sm text-on-surface-variant">
+              <a href="tel:649050448" className="hover:text-primary transition-colors">
+                649-050-448
+              </a>
+            </p>
           </div>
           <div className="space-y-3">
             <h5 className="font-headline-sm text-moss-deep font-bold text-[16px]">Legal</h5>
             <p className="text-body-sm text-on-surface-variant">
-              © 2024 Vanesa Ezquerra. All rights reserved.
+              © 2026 Vanesa Ezquerra. All rights reserved.
             </p>
             <p
               onClick={() => setLegalModalOpen(true)}
@@ -868,7 +951,7 @@ export default function App() {
                     : 'bg-surface-container text-on-surface-variant hover:text-primary'
                 }`}
               >
-                2. Bloques por Sección (8 Secciones)
+                2. Bloques por Sección (9 Secciones)
               </button>
               <button
                 type="button"
@@ -1192,7 +1275,7 @@ export default function App() {
                 <p className="text-body-sm text-on-surface-variant max-w-md mx-auto">
                   Hemos enviado los horarios disponibles de este trimestre a{' '}
                   <strong className="text-moss-deep">{bookingForm.email}</strong> desde{' '}
-                  <strong className="text-primary">studio@vanesaezquerra.com</strong>.
+                  <strong className="text-primary">hola@vanesaezquerra.com</strong>.
                 </p>
                 <button
                   type="button"
@@ -1201,6 +1284,112 @@ export default function App() {
                 >
                   Volver a la web
                 </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Interactive Modal for Ebook Download */}
+      {ebookModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-background border border-outline-variant/50 rounded-[2rem] max-w-lg w-full p-8 shadow-2xl relative space-y-6">
+            <button
+              type="button"
+              onClick={() => setEbookModalOpen(false)}
+              className="absolute top-6 right-6 w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer"
+              aria-label="Cerrar modal de ebook"
+            >
+              <span className="material-symbols-outlined text-[20px]">close</span>
+            </button>
+
+            {!ebookSubmitted ? (
+              <>
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/assets/aistudio/image_9ba97cfd.png"
+                    alt="Portada Ebook Passivhaus"
+                    width={1410}
+                    height={2250}
+                    className="w-20 h-auto rounded-lg shadow-md border border-outline-variant/40 shrink-0"
+                  />
+                  <div className="space-y-1">
+                    <span className="text-xs font-label-md uppercase tracking-widest text-primary font-semibold">
+                      Ebook Gratuito · Edición 2026
+                    </span>
+                    <h3 className="font-headline-lg text-xl text-moss-deep font-bold leading-snug">
+                      5 Cosas que debes saber sobre el Passivhaus y que nadie te cuenta
+                    </h3>
+                  </div>
+                </div>
+
+                <form onSubmit={handleEbookSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-moss-deep mb-1.5">
+                      Tu nombre
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={ebookForm.nombre}
+                      onChange={(e) => setEbookForm({ ...ebookForm, nombre: e.target.value })}
+                      placeholder="Ej. Elena Martínez"
+                      className="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/60 text-sm focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-moss-deep mb-1.5">
+                      Tu correo electrónico
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={ebookForm.email}
+                      onChange={(e) => setEbookForm({ ...ebookForm, email: e.target.value })}
+                      placeholder="tu@email.com"
+                      className="w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/60 text-sm focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-4 rounded-2xl font-label-md font-bold text-sm flex items-center justify-center gap-2 shadow-lg cursor-pointer transition-opacity hover:opacity-95"
+                    style={{ backgroundColor: 'rgb(132, 204, 22)', color: 'rgb(0, 0, 0)' }}
+                  >
+                    <span>SI, Quiero mi ebook.</span>
+                    <span className="material-symbols-outlined text-[18px]">download</span>
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="py-6 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-primary-container text-primary mx-auto flex items-center justify-center">
+                  <span className="material-symbols-outlined text-3xl">menu_book</span>
+                </div>
+                <h4 className="font-headline-md text-2xl text-moss-deep font-bold">
+                  ¡Tu Ebook está listo, {ebookForm.nombre}!
+                </h4>
+                <p className="text-body-sm text-on-surface-variant max-w-md mx-auto">
+                  Hemos enviado una copia a <strong className="text-moss-deep">{ebookForm.email}</strong> desde{' '}
+                  <strong className="text-primary">hola@vanesaezquerra.com</strong>. También puedes ver la portada o guardarla directamente:
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <a
+                    href="/assets/aistudio/image_9ba97cfd.png"
+                    download="Ebook-5-Cosas-Passivhaus-Vanesa-Ezquerra.png"
+                    className="px-6 py-2.5 rounded-full font-semibold text-xs inline-flex items-center gap-2 shadow-sm"
+                    style={{ backgroundColor: 'rgb(132, 204, 22)', color: 'rgb(0, 0, 0)' }}
+                  >
+                    <span className="material-symbols-outlined text-[16px]">download</span>
+                    <span>Descargar Portada / Guía</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setEbookModalOpen(false)}
+                    className="px-6 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-moss-deep transition-colors cursor-pointer"
+                  >
+                    Cerrar
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -1223,10 +1412,10 @@ export default function App() {
               Aviso Legal &amp; Privacidad
             </h3>
             <p className="text-body-sm text-on-surface-variant leading-relaxed">
-              Titular: Vanesa Ezquerra — Certified Passivhaus Designer &amp; Sustainable Architecture Studio. Contacto oficial: studio@vanesaezquerra.com · Teléfono: +34 900 000 000.
+              Titular: Vanesa Ezquerra — Certified Passivhaus Designer &amp; Sustainable Architecture Studio. Contacto oficial: hola@vanesaezquerra.com · Teléfono: 649-050-448.
             </p>
             <p className="text-body-sm text-on-surface-variant leading-relaxed">
-              © 2024 Vanesa Ezquerra. All rights reserved. Todos los datos facilitados durante la reserva de la Sesión Estratégica se tratan bajo estricto cumplimiento del RGPD con la única finalidad de evaluar la viabilidad técnica de su proyecto Passivhaus.
+              © 2026 Vanesa Ezquerra. All rights reserved. Todos los datos facilitados durante la reserva de la Sesión Estratégica se tratan bajo estricto cumplimiento del RGPD con la única finalidad de evaluar la viabilidad técnica de su proyecto Passivhaus.
             </p>
             <div className="pt-2">
               <button

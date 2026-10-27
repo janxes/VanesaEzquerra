@@ -22,14 +22,14 @@
   --color-linen: #F7F6F2;
   --color-moss-deep: #1D3216;
 
-  --font-headline-sm: "Syne", sans-serif;
-  --font-headline-md: "Syne", sans-serif;
-  --font-headline-lg: "Syne", sans-serif;
-  --font-headline-xl: "Syne", sans-serif;
-  --font-body-sm: "DM Sans", sans-serif;
-  --font-body-md: "DM Sans", sans-serif;
-  --font-body-lg: "DM Sans", sans-serif;
-  --font-label-md: "DM Sans", sans-serif;
+  --font-headline-sm: "Syne", Arial, Helvetica, sans-serif;
+  --font-headline-md: "Syne", Arial, Helvetica, sans-serif;
+  --font-headline-lg: "Syne", Arial, Helvetica, sans-serif;
+  --font-headline-xl: "Syne", Arial, Helvetica, sans-serif;
+  --font-body-sm: "DM Sans", Arial, Helvetica, sans-serif;
+  --font-body-md: "DM Sans", Arial, Helvetica, sans-serif;
+  --font-body-lg: "DM Sans", Arial, Helvetica, sans-serif;
+  --font-label-md: "DM Sans", Arial, Helvetica, sans-serif;
 }
 
 @layer base {
@@ -40,7 +40,7 @@
   }
   body {
     overscroll-behavior: none;
-    font-family: "DM Sans", sans-serif;
+    font-family: "DM Sans", Arial, Helvetica, sans-serif;
     background-color: #FCFCFA;
     color: #1B2218;
   }
@@ -53,7 +53,7 @@
 }
 
 .text-body-sm {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   line-height: 1.4;
 }

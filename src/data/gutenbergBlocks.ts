@@ -49,12 +49,12 @@ export const TT5_CUSTOM_CSS = `/* ==============================================
   margin-bottom: 0 !important;
 }
 
-/* Tipografías exactas Syne & DM Sans */
+/* Tipografías exactas Syne & DM Sans con fallback inmediato de sistema (Arial, Helvetica) mientras descarga (display=swap) */
 .ve-font-headline {
-  font-family: "Syne", sans-serif !important;
+  font-family: "Syne", Arial, Helvetica, sans-serif !important;
 }
 .ve-font-body {
-  font-family: "DM Sans", sans-serif !important;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif !important;
 }
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
@@ -184,12 +184,12 @@ export const TT5_THEME_JSON_SNIPPET = `{
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "\\"Syne\\", sans-serif",
+          "fontFamily": "\\"Syne\\", Arial, Helvetica, sans-serif",
           "name": "Syne (Headlines)",
           "slug": "syne"
         },
         {
-          "fontFamily": "\\"DM Sans\\", sans-serif",
+          "fontFamily": "\\"DM Sans\\", Arial, Helvetica, sans-serif",
           "name": "DM Sans (Body & Labels)",
           "slug": "dm-sans"
         }
@@ -219,8 +219,8 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
 <header class="wp-block-group alignfull ve-tt5-header sticky top-0 w-full z-50 bg-[#FCFCFA]/95 backdrop-blur-md border-b border-outline-variant/30 has-background" style="background-color:#FCFCFAf2;padding-top:0px;padding-right:1.5rem;padding-bottom:0px;padding-left:1.5rem">
   <!-- wp:group {"className":"h-20 lg:h-24 max-w-7xl mx-auto flex items-center justify-between gap-3","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
   <div class="wp-block-group h-20 lg:h-24 max-w-7xl mx-auto flex items-center justify-between gap-3">
-    <!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"m-0 shrink-0"} -->
-    <figure class="wp-block-image size-full m-0 shrink-0"><a href="#"><img src="/assets/aistudio/image_e1c48185.png" alt="Vanesa Ezquerra" style="height:34px;width:auto;object-fit:contain;mix-blend-mode:multiply;"/></a></figure>
+    <!-- wp:image {"width":300,"height":39,"sizeSlug":"full","linkDestination":"custom","className":"m-0 shrink-0"} -->
+    <figure class="wp-block-image size-full is-resized m-0 shrink-0"><a href="#"><img src="/assets/aistudio/image_e1c48185.png" alt="Vanesa Ezquerra" width="300" height="39" style="height:34px;width:auto;object-fit:contain;mix-blend-mode:multiply;"/></a></figure>
     <!-- /wp:image -->
 
     <!-- wp:group {"tagName":"nav","className":"hidden lg:flex items-center gap-2","layout":{"type":"flex","flexWrap":"nowrap"}} -->
@@ -281,10 +281,10 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
       '-90%',
       'La tranquilidad de contar con una diseñadora que predice la energía que va a consumir tu vivienda antes de construirla y durante toda su vida útil, garantizando confort absoluto y bienestar para tu familia.'
     ],
-    gutenbergCode: `<!-- wp:cover {"url":"https://www.vanesaezquerra.com/wp-content/uploads/2016/11/vanesa_ezquerra_home_prueba8.jpg","dimRatio":30,"overlayColor":"black","focalPoint":{"x":1,"y":0.5},"minHeight":85,"minHeightUnit":"vh","align":"full","className":"relative lg:min-h-[85vh] flex items-center justify-center px-6 lg:px-12 py-12 lg:py-16 overflow-hidden","style":{"spacing":{"padding":{"top":"3rem","bottom":"3rem","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
+    gutenbergCode: `<!-- wp:cover {"url":"/assets/aistudio/vanesa_ezquerra_arquitectura_3efeb153.webp","dimRatio":30,"overlayColor":"black","focalPoint":{"x":1,"y":0.5},"minHeight":85,"minHeightUnit":"vh","align":"full","className":"relative lg:min-h-[85vh] flex items-center justify-center px-6 lg:px-12 py-12 lg:py-16 overflow-hidden","style":{"spacing":{"padding":{"top":"3rem","bottom":"3rem","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
 <div class="wp-block-cover alignfull relative lg:min-h-[85vh] flex items-center justify-center px-6 lg:px-12 py-12 lg:py-16 overflow-hidden" style="padding-top:3rem;padding-right:1.5rem;padding-bottom:3rem;padding-left:1.5rem;min-height:85vh">
   <span aria-hidden="true" class="wp-block-cover__background has-black-background-color has-background-dim-30 has-background-dim" style="background:linear-gradient(90deg, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.42) 52%, rgba(0,0,0,0.12) 100%);"></span>
-  <img class="wp-block-cover__image-background" alt="" src="https://www.vanesaezquerra.com/wp-content/uploads/2016/11/vanesa_ezquerra_home_prueba8.jpg" style="object-position:100% 50%" data-object-fit="cover" data-object-position="100% 50%"/>
+  <img class="wp-block-cover__image-background" alt="Vanesa Ezquerra Arquitectura Passivhaus" src="/assets/aistudio/vanesa_ezquerra_arquitectura_3efeb153.webp" width="1900" height="1051" style="object-position:100% 50%" data-object-fit="cover" data-object-position="100% 50%"/>
   <div class="wp-block-cover__inner-container">
     <!-- wp:group {"className":"max-w-7xl mx-auto w-full ve-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative z-10","layout":{"type":"default"}} -->
     <div class="wp-block-group max-w-7xl mx-auto w-full ve-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative z-10">
@@ -782,8 +782,64 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
 <!-- /wp:group -->`
   },
   {
+    id: 'ebook',
+    title: '07. Ebook Descargable Passivhaus',
+    subtitle: 'Sección 2 columnas (Portada Ebook 1410×2250 + Mensaje de Autora & CTA)',
+    blockTypes: ['core/group', 'core/columns', 'core/column', 'core/image', 'core/heading', 'core/paragraph', 'core/html'],
+    literalTexts: [
+      '¿Quieres saber más sobre los proyectos passivhaus?',
+      'Sabía que, una vez hayas leído un poco sobre el Passivhaus, querías leer más sobre Passivhaus por eso he escrito este ebook con todo mi cariño para ti, como arquitecto Passivhaus. Para que sepas de verdad, lo que entraña el Passivhaus bien hecho, y no te pierdas la oportunidad de tener información seria de la mano de un arquitecto passivhaus certificado, como yo.',
+      'SI, Quiero mi ebook.'
+    ],
+    gutenbergCode: `<!-- wp:group {"tagName":"section","align":"full","className":"py-24 px-6 lg:px-12 bg-surface-container-low relative border-t border-outline-variant/30","style":{"color":{"background":"#F7F7F4"},"spacing":{"padding":{"top":"6rem","bottom":"6rem","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
+<section class="wp-block-group alignfull py-24 px-6 lg:px-12 bg-surface-container-low relative border-t border-outline-variant/30 has-background" style="background-color:#F7F7F4;padding-top:6rem;padding-right:1.5rem;padding-bottom:6rem;padding-left:1.5rem">
+  <!-- wp:columns {"className":"max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"} -->
+  <div class="wp-block-columns max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- wp:column {"className":"lg:col-span-5 flex justify-center"} -->
+    <div class="wp-block-column lg:col-span-5 flex justify-center">
+      <!-- wp:image {"width":1410,"height":2250,"sizeSlug":"full","className":"w-full max-w-[280px] sm:max-w-[330px] h-auto rounded-2xl shadow-2xl border border-outline-variant/40"} -->
+      <figure class="wp-block-image size-full is-resized w-full max-w-[280px] sm:max-w-[330px] h-auto rounded-2xl shadow-2xl border border-outline-variant/40"><img src="/assets/aistudio/image_9ba97cfd.png" alt="Ebook: 5 cosas que debes saber sobre el Passivhaus y que nadie te cuenta — Vanesa Ezquerra" width="1410" height="2250" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:1rem;"/></figure>
+      <!-- /wp:image -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column {"className":"lg:col-span-7 space-y-6"} -->
+    <div class="wp-block-column lg:col-span-7 space-y-6">
+      <!-- wp:html -->
+      <div>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container text-primary font-label-md font-semibold text-sm">
+          <span class="material-symbols-outlined text-[18px]">menu_book</span>
+          <span>Guía Descargable Gratuita · Edición 2026</span>
+        </span>
+      </div>
+      <!-- /wp:html -->
+
+      <!-- wp:heading {"level":2,"className":"ve-font-headline font-headline-lg text-3xl sm:text-4xl lg:text-5xl text-moss-deep font-bold leading-tight","style":{"color":{"text":"#1D3216"},"typography":{"fontWeight":"700"}}} -->
+      <h2 class="wp-block-heading ve-font-headline font-headline-lg text-3xl sm:text-4xl lg:text-5xl text-moss-deep font-bold leading-tight has-text-color" style="color:#1D3216;font-weight:700">¿Quieres saber más sobre los proyectos passivhaus?</h2>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph {"className":"font-body-lg text-on-surface-variant text-lg leading-relaxed","style":{"color":{"text":"#4F594C"}}} -->
+      <p class="font-body-lg text-on-surface-variant text-lg leading-relaxed has-text-color" style="color:#4F594C">Sabía que, una vez hayas leído un poco sobre el Passivhaus, querías leer más sobre Passivhaus por eso he escrito este ebook con todo mi cariño para ti, como arquitecto Passivhaus. Para que sepas de verdad, lo que entraña el Passivhaus bien hecho, y no te pierdas la oportunidad de tener información seria de la mano de un arquitecto passivhaus certificado, como yo.</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:html -->
+      <div class="pt-2">
+        <a href="#descargar-ebook" class="inline-flex items-center gap-3 font-label-md px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:opacity-95 transition-all text-base font-bold shadow-xl shadow-primary/15" style="background-color: rgb(132, 204, 22); color: rgb(0, 0, 0);">
+          <span>SI, Quiero mi ebook.</span>
+          <span class="material-symbols-outlined text-[20px]">download</span>
+        </a>
+      </div>
+      <!-- /wp:html -->
+    </div>
+    <!-- /wp:column -->
+  </div>
+  <!-- /wp:columns -->
+</section>
+<!-- /wp:group -->`
+  },
+  {
     id: 'cta-final',
-    title: '07. Footer CTA Final de Alta Conversión',
+    title: '08. Footer CTA Final de Alta Conversión',
     subtitle: 'Sección centrada con gradiente sutil y CTA Lima rgb(132, 204, 22)',
     blockTypes: ['core/group', 'core/heading', 'core/paragraph', 'core/html'],
     literalTexts: [
@@ -832,17 +888,17 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
   },
   {
     id: 'footer',
-    title: '08. Footer Institucional (3 Columnas)',
+    title: '09. Footer Institucional (3 Columnas)',
     subtitle: 'Template Part: footer.html en Twenty Twenty-Five (TT5)',
     blockTypes: ['core/group', 'core/columns', 'core/column', 'core/heading', 'core/paragraph'],
     literalTexts: [
       'Vanesa Ezquerra',
       'Certified Passivhaus Designer & Sustainable Architecture Studio.',
       'Contacto',
-      'studio@vanesaezquerra.com',
-      '+34 900 000 000',
+      'hola@vanesaezquerra.com',
+      '649-050-448',
       'Legal',
-      '© 2024 Vanesa Ezquerra. All rights reserved.',
+      '© 2026 Vanesa Ezquerra. All rights reserved.',
       'Aviso Legal & Privacidad'
     ],
     gutenbergCode: `<!-- wp:group {"tagName":"footer","align":"full","className":"w-full bg-[#EFEFEA] py-16 text-on-surface-variant border-t border-outline-variant/30","style":{"color":{"background":"#EFEFEA","text":"#4F594C"},"spacing":{"padding":{"top":"4rem","bottom":"4rem","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
@@ -866,10 +922,10 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
       <h5 class="wp-block-heading ve-font-headline font-headline-sm text-moss-deep font-bold text-[16px] has-text-color" style="color:#1D3216;font-size:16px;font-weight:700">Contacto</h5>
       <!-- /wp:heading -->
       <!-- wp:paragraph {"className":"text-body-sm text-on-surface-variant","style":{"color":{"text":"#4F594C"}}} -->
-      <p class="text-body-sm text-on-surface-variant has-text-color" style="color:#4F594C">studio@vanesaezquerra.com</p>
+      <p class="text-body-sm text-on-surface-variant has-text-color" style="color:#4F594C"><a href="mailto:hola@vanesaezquerra.com">hola@vanesaezquerra.com</a></p>
       <!-- /wp:paragraph -->
       <!-- wp:paragraph {"className":"text-body-sm text-on-surface-variant","style":{"color":{"text":"#4F594C"}}} -->
-      <p class="text-body-sm text-on-surface-variant has-text-color" style="color:#4F594C">+34 900 000 000</p>
+      <p class="text-body-sm text-on-surface-variant has-text-color" style="color:#4F594C"><a href="tel:649050448">649-050-448</a></p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
@@ -880,7 +936,7 @@ export const GUTENBERG_SECTIONS: GutenbergSection[] = [
       <h5 class="wp-block-heading ve-font-headline font-headline-sm text-moss-deep font-bold text-[16px] has-text-color" style="color:#1D3216;font-size:16px;font-weight:700">Legal</h5>
       <!-- /wp:heading -->
       <!-- wp:paragraph {"className":"text-body-sm text-on-surface-variant","style":{"color":{"text":"#4F594C"}}} -->
-      <p class="text-body-sm text-on-surface-variant has-text-color" style="color:#4F594C">© 2024 Vanesa Ezquerra. All rights reserved.</p>
+      <p class="text-body-sm text-on-surface-variant has-text-color" style="color:#4F594C">© 2026 Vanesa Ezquerra. All rights reserved.</p>
       <!-- /wp:paragraph -->
       <!-- wp:paragraph {"className":"text-body-sm text-primary hover:underline cursor-pointer font-medium","style":{"color":{"text":"#2D4A22"}}} -->
       <p class="text-body-sm text-primary hover:underline cursor-pointer font-medium has-text-color" style="color:#2D4A22">Aviso Legal &amp; Privacidad</p>
