@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FCFCFA;
+  --color-surface: #FCFCFA;
+  --color-surface-dim: #F4F4F0;
+  --color-surface-container-low: #F7F7F4;
+  --color-surface-container: #EFEFEA;
+  --color-surface-container-high: #E5E5DE;
+  --color-surface-container-highest: #DDDED6;
+  --color-on-background: #1B2218;
+  --color-on-surface: #1B2218;
+  --color-on-surface-variant: #4F594C;
+  --color-primary: #2D4A22;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #D7E6CF;
+  --color-on-primary-container: #11200D;
+  --color-secondary: #687563;
+  --color-secondary-container: #E3E9E0;
+  --color-outline: #808C7C;
+  --color-outline-variant: #D0D7CC;
+  --color-linen: #F7F6F2;
+  --color-moss-deep: #1D3216;
+
+  --font-headline-sm: "Syne", sans-serif;
+  --font-headline-md: "Syne", sans-serif;
+  --font-headline-lg: "Syne", sans-serif;
+  --font-headline-xl: "Syne", sans-serif;
+  --font-body-sm: "DM Sans", sans-serif;
+  --font-body-md: "DM Sans", sans-serif;
+  --font-body-lg: "DM Sans", sans-serif;
+  --font-label-md: "DM Sans", sans-serif;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  body {
+    overscroll-behavior: none;
+    font-family: "DM Sans", sans-serif;
+    background-color: #FCFCFA;
+    color: #1B2218;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.text-body-sm {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+

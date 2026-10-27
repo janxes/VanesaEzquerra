@@ -1,0 +1,6 @@
+{
+  "name": "Vanesa Ezquerra — Arquitectura Passivhaus & Bloques Gutenberg TT5",
+  "description": "Web de arquitectura Passivhaus de autor para Vanesa Ezquerra y conversor exacto a bloques Gutenberg para WordPress Twenty Twenty-Five (TT5).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
