@@ -230,14 +230,17 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Quick Metrics Column — compact on mobile, offset only on desktop */}
+              {/* Quick Metrics Column — Asymmetric 2 columns (narrower -90% div, wider right text +2pt & +8 words, 80% translucent background) */}
               <div className="lg:col-span-4 flex flex-col justify-between lg:translate-y-12">
-                <div className="bg-surface-container-low p-6 sm:p-8 rounded-[2rem] border border-outline-variant/40 relative overflow-hidden group hover:border-primary/40 transition-all shadow-sm">
-                  <div className="text-4xl sm:text-5xl font-headline-lg text-primary mb-2 font-bold">
+                <div
+                  className="bg-surface-container-low/80 backdrop-blur-md p-5 sm:p-7 rounded-[2rem] border border-outline-variant/40 relative overflow-hidden group hover:border-primary/40 transition-all shadow-sm grid grid-cols-12 items-center gap-3 sm:gap-4"
+                  style={{ backgroundColor: 'rgba(247, 247, 244, 0.8)' }}
+                >
+                  <div className="col-span-3 text-2xl sm:text-3xl xl:text-4xl font-headline-lg text-primary font-bold leading-none border-r border-outline-variant/60 pr-2.5">
                     -90%
                   </div>
-                  <p className="font-body-lg text-on-surface max-w-2xl text-base font-normal leading-relaxed relative z-10">
-                    Ahorro drástico en climatización y ausencia absoluta de puentes térmicos.
+                  <p className="col-span-9 font-body-lg text-on-surface text-[16px] sm:text-[18px] font-normal leading-snug relative z-10">
+                    La tranquilidad de contar con una diseñadora que predice la energía que va a consumir tu vivienda antes de construirla y durante toda su vida útil, garantizando confort absoluto y bienestar para tu familia.
                   </p>
                 </div>
               </div>
@@ -467,7 +470,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* Q&A GEO / AEO Section */}
+          {/* Preguntas Frecuentes (2 Columnas & Acordeón Desplegable — 6 Preguntas) */}
           <section
             id="sec-faq"
             className={`py-24 px-6 lg:px-12 bg-surface-dim relative ${
@@ -480,58 +483,115 @@ export default function App() {
                 className="absolute top-4 right-4 z-30 bg-moss-deep text-white text-xs font-label-md px-3 py-1.5 rounded-full shadow-md hover:bg-primary transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 <span className="material-symbols-outlined text-[14px]">code_blocks</span>
-                <span>Copiar Bloque Gutenberg: FAQ GEO / AEO</span>
+                <span>Copiar Bloque Gutenberg: FAQ Acordeón 2 Cols</span>
               </button>
             )}
-            <div className="max-w-4xl mx-auto space-y-10">
+            <div className="max-w-7xl mx-auto space-y-10">
               <div className="text-center space-y-3">
                 <span className="font-label-md text-primary uppercase tracking-widest font-semibold">
-                  Base de Conocimiento GEO / AEO
+                  Claridad &amp; Confianza para tu Proyecto
                 </span>
                 <h2 className="font-headline-lg text-3xl sm:text-4xl text-moss-deep font-bold">
                   Preguntas Frecuentes sobre Passivhaus
                 </h2>
-                <p className="font-body-md text-on-surface-variant max-w-xl mx-auto">
-                  Respuestas directas optimizadas para motores de búsqueda de Inteligencia Artificial (ChatGPT, Perplexity, Google SGE).
+                <p className="font-body-md text-on-surface-variant max-w-2xl mx-auto">
+                  Resolvemos de forma clara y cercana las dudas más habituales antes de diseñar y construir tu vivienda saludable de consumo casi nulo.
                 </p>
               </div>
-              <div className="space-y-4">
-                <div className="bg-surface-container-low p-8 rounded-3xl border border-outline-variant/40 shadow-sm">
-                  <h4 className="font-headline-sm text-lg text-moss-deep font-bold mb-3 flex items-center gap-3">
-                    <span className="text-primary font-bold">Q.</span> ¿Cuánto se ahorra realmente en una casa Passivhaus diseñada por Vanesa Ezquerra?
-                  </h4>
-                  <p className="font-body-md text-on-surface-variant pl-7 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <details className="group bg-surface-container-low p-6 sm:p-8 rounded-3xl border border-outline-variant/40 shadow-sm transition-all">
+                  <summary className="font-headline-sm text-lg text-moss-deep font-bold flex items-start justify-between gap-4 cursor-pointer list-none">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary font-bold shrink-0">Q.</span>
+                      <span>¿Cuánto se ahorra realmente en una casa Passivhaus diseñada por Vanesa Ezquerra?</span>
+                    </span>
+                    <span className="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180 shrink-0 mt-0.5">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="font-body-md text-on-surface-variant pl-7 pt-4 leading-relaxed border-t border-outline-variant/30 mt-4">
                     El ahorro en calefacción y refrigeración alcanza hasta el{' '}
                     <strong className="text-moss-deep font-semibold">
                       90% en comparación con una vivienda convencional
                     </strong>{' '}
                     construida bajo código técnico estándar. El consumo anual suele reducirse a menos de 15 kWh/m²a.
                   </p>
-                </div>
-                <div className="bg-surface-container-low p-8 rounded-3xl border border-outline-variant/40 shadow-sm">
-                  <h4 className="font-headline-sm text-lg text-moss-deep font-bold mb-3 flex items-center gap-3">
-                    <span className="text-primary font-bold">Q.</span> ¿Qué es el Test Blower Door y por qué es obligatorio?
-                  </h4>
-                  <p className="font-body-md text-on-surface-variant pl-7 leading-relaxed">
+                </details>
+
+                <details className="group bg-surface-container-low p-6 sm:p-8 rounded-3xl border border-outline-variant/40 shadow-sm transition-all">
+                  <summary className="font-headline-sm text-lg text-moss-deep font-bold flex items-start justify-between gap-4 cursor-pointer list-none">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary font-bold shrink-0">Q.</span>
+                      <span>¿Qué es el Test Blower Door y por qué es obligatorio?</span>
+                    </span>
+                    <span className="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180 shrink-0 mt-0.5">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="font-body-md text-on-surface-variant pl-7 pt-4 leading-relaxed border-t border-outline-variant/30 mt-4">
                     Es la prueba de estanqueidad al aire que mide las infiltraciones parásitas en la envolvente. Para obtener la certificación oficial del Passivhaus Institute, la renovación de aire a 50 Pascales de presión no debe superar n50 ≤ 0.6 h⁻¹.
                   </p>
-                </div>
-                <div className="bg-surface-container-low p-8 rounded-3xl border border-outline-variant/40 shadow-sm">
-                  <h4 className="font-headline-sm text-lg text-moss-deep font-bold mb-3 flex items-center gap-3">
-                    <span className="text-primary font-bold">Q.</span> ¿Cómo se respira aire puro sin abrir las ventanas en invierno?
-                  </h4>
-                  <p className="font-body-md text-on-surface-variant pl-7 leading-relaxed">
+                </details>
+
+                <details className="group bg-surface-container-low p-6 sm:p-8 rounded-3xl border border-outline-variant/40 shadow-sm transition-all">
+                  <summary className="font-headline-sm text-lg text-moss-deep font-bold flex items-start justify-between gap-4 cursor-pointer list-none">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary font-bold shrink-0">Q.</span>
+                      <span>¿Cómo se respira aire puro sin abrir las ventanas en invierno?</span>
+                    </span>
+                    <span className="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180 shrink-0 mt-0.5">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="font-body-md text-on-surface-variant pl-7 pt-4 leading-relaxed border-t border-outline-variant/30 mt-4">
                     Mediante un sistema de ventilación mecánica controlada (VMC) de doble flujo con recuperador de calor de alta eficiencia (&gt;85%). El aire viciado se extrae mientras se introduce aire nuevo filtrado de polen, polvo y CO₂, precalentado o enfriado de forma pasiva.
                   </p>
-                </div>
-                <div className="bg-surface-container-low p-8 rounded-3xl border border-outline-variant/40 shadow-sm">
-                  <h4 className="font-headline-sm text-lg text-moss-deep font-bold mb-3 flex items-center gap-3">
-                    <span className="text-primary font-bold">Q.</span> ¿Se puede construir una casa Passivhaus con estructura de madera o CLT?
-                  </h4>
-                  <p className="font-body-md text-on-surface-variant pl-7 leading-relaxed">
+                </details>
+
+                <details className="group bg-surface-container-low p-6 sm:p-8 rounded-3xl border border-outline-variant/40 shadow-sm transition-all">
+                  <summary className="font-headline-sm text-lg text-moss-deep font-bold flex items-start justify-between gap-4 cursor-pointer list-none">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary font-bold shrink-0">Q.</span>
+                      <span>¿Se puede construir una casa Passivhaus con estructura de madera o CLT?</span>
+                    </span>
+                    <span className="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180 shrink-0 mt-0.5">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="font-body-md text-on-surface-variant pl-7 pt-4 leading-relaxed border-t border-outline-variant/30 mt-4">
                     Sí. De hecho, los sistemas constructivos en entramado ligero de madera o paneles CLT (Cross Laminated Timber) combinan a la perfección con la filosofía Passivhaus debido a su baja huella de carbono, rapidez de ejecución y excelente comportamiento térmico.
                   </p>
-                </div>
+                </details>
+
+                <details className="group bg-surface-container-low p-6 sm:p-8 rounded-3xl border border-outline-variant/40 shadow-sm transition-all">
+                  <summary className="font-headline-sm text-lg text-moss-deep font-bold flex items-start justify-between gap-4 cursor-pointer list-none">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary font-bold shrink-0">Q.</span>
+                      <span>¿Cuánto tiempo se tarda en diseñar y construir una vivienda Passivhaus?</span>
+                    </span>
+                    <span className="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180 shrink-0 mt-0.5">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="font-body-md text-on-surface-variant pl-7 pt-4 leading-relaxed border-t border-outline-variant/30 mt-4">
+                    El proceso completo suele oscilar entre 12 y 16 meses: de 4 a 6 meses para el diseño personalizado, simulación energética y licencias, y entre 6 y 10 meses de ejecución en obra gracias a sistemas constructivos de alta precisión.
+                  </p>
+                </details>
+
+                <details className="group bg-surface-container-low p-6 sm:p-8 rounded-3xl border border-outline-variant/40 shadow-sm transition-all">
+                  <summary className="font-headline-sm text-lg text-moss-deep font-bold flex items-start justify-between gap-4 cursor-pointer list-none">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary font-bold shrink-0">Q.</span>
+                      <span>¿Es más cara una casa Passivhaus que una vivienda tradicional?</span>
+                    </span>
+                    <span className="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180 shrink-0 mt-0.5">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="font-body-md text-on-surface-variant pl-7 pt-4 leading-relaxed border-t border-outline-variant/30 mt-4">
+                    La inversión inicial supone entre un 5% y un 8% adicional respecto a una construcción estándar, pero se amortiza desde el primer día gracias al ahorro del 90% en facturas, mayor confort y la revalorización patrimonial del inmueble.
+                  </p>
+                </details>
               </div>
             </div>
           </section>
