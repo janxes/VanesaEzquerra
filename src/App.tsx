@@ -230,16 +230,16 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Quick Metrics Column — Asymmetric 2 columns (narrower -90% div, wider right text +2pt & +8 words, 80% translucent background) */}
+              {/* Quick Metrics Column — 2 asymmetric columns on mobile/tablet, stacked top-to-bottom on desktop so they never overlap */}
               <div className="lg:col-span-4 flex flex-col justify-between lg:translate-y-12">
                 <div
-                  className="bg-surface-container-low/80 backdrop-blur-md p-5 sm:p-7 rounded-[2rem] border border-outline-variant/40 relative overflow-hidden group hover:border-primary/40 transition-all shadow-sm grid grid-cols-12 items-center gap-3 sm:gap-4"
+                  className="bg-surface-container-low/80 backdrop-blur-md p-5 sm:p-7 rounded-[2rem] border border-outline-variant/40 relative overflow-hidden group hover:border-primary/40 transition-all shadow-sm grid grid-cols-12 items-center gap-3 sm:gap-4 lg:flex lg:flex-col lg:items-start lg:gap-3"
                   style={{ backgroundColor: 'rgba(247, 247, 244, 0.8)' }}
                 >
-                  <div className="col-span-3 text-2xl sm:text-3xl xl:text-4xl font-headline-lg text-primary font-bold leading-none border-r border-outline-variant/60 pr-2.5">
+                  <div className="col-span-3 lg:w-full text-2xl sm:text-3xl xl:text-5xl font-headline-lg text-primary font-bold leading-none border-r lg:border-r-0 lg:border-b border-outline-variant/60 pr-2.5 lg:pr-0 lg:pb-3">
                     -90%
                   </div>
-                  <p className="col-span-9 font-body-lg text-on-surface text-[16px] sm:text-[18px] font-normal leading-snug relative z-10">
+                  <p className="col-span-9 lg:w-full font-body-lg text-on-surface text-[16px] sm:text-[18px] font-normal leading-snug relative z-10">
                     La tranquilidad de contar con una diseñadora que predice la energía que va a consumir tu vivienda antes de construirla y durante toda su vida útil, garantizando confort absoluto y bienestar para tu familia.
                   </p>
                 </div>
@@ -283,18 +283,24 @@ export default function App() {
                 {/* Bloque 1 */}
                 <div className="md:col-span-8 bg-surface-container-low p-10 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between group border border-outline-variant/40 shadow-sm">
                   <div
-                    className="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-35 transition-opacity duration-700"
+                    className="absolute inset-0 bg-cover bg-center opacity-95 group-hover:scale-[1.02] transition-transform duration-700"
                     style={{
                       backgroundImage:
                         'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHYRpQba6y-RtflXPQR_gtBy8lU6R1zUwyKo_BqaeNbd6MIeOFbXbxTBX5N7Eao0KbcJNh0dD371pJ2pBXe7FijEbbgAg4D8Y-si_o9yL8EM_TZA46v8SO3f3NQa-xeq3kJG8581LfWXt6c-W0HfmdgGss5xN9zjvfhJglOcnYarSxMgfMLSgDt4xe-mVNWDJ5fCWafQQvJCi9FurgVegkBI1TUrohWhaPfxLlL9UncjhtbxP10Ibv"), linear-gradient(135deg, #D7E6CF 0%, #EFEFEA 100%)',
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/70 to-transparent" />
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        'linear-gradient(to top, rgba(247, 247, 244, 0.92) 0%, rgba(247, 247, 244, 0.82) 33%, rgba(247, 247, 244, 0) 45%)',
+                    }}
+                  />
                   <div className="relative z-10 flex justify-between items-start">
-                    <span className="px-4 py-1.5 rounded-full bg-primary/15 text-primary font-label-md font-semibold">
+                    <span className="px-4 py-1.5 rounded-full bg-surface-container-low/85 backdrop-blur-sm text-primary font-label-md font-semibold">
                       01 / Certificación Oficial
                     </span>
-                    <span className="material-symbols-outlined text-primary text-3xl">verified</span>
+                    <span className="material-symbols-outlined text-primary text-3xl drop-shadow-sm">verified</span>
                   </div>
                   <div className="relative z-10 pt-32 space-y-2">
                     <h3 className="font-headline-md text-2xl text-moss-deep font-bold">
